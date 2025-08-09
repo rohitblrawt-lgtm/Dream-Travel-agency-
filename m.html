@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Agency</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+    }
+    header {
+        background: #0077b6;
+        padding: 15px;
+        color: white;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+    /* Image Slider */
+    .slider {
+        position: relative;
+        max-width: 100%;
+        height: 400px;
+        overflow: hidden;
+    }
+    .slides {
+        display: flex;
+        width: 300%;
+        animation: slide 12s infinite;
+    }
+    .slides img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+    }
+    @keyframes slide {
+        0% { transform: translateX(0); }
+        33% { transform: translateX(-100%); }
+        66% { transform: translateX(-200%); }
+        100% { transform: translateX(0); }
+    }
+    /* Search Bar */
+    .search-bar {
+        text-align: center;
+        padding: 20px;
+    }
+    .search-bar input {
+        width: 80%;
+        max-width: 400px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        font-size: 1rem;
+    }
+    /* Destinations */
+    .destinations {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+    .card {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s;
+    }
+    .card:hover {
+        transform: scale(1.05);
+    }
+    .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    .card h3 {
+        margin: 10px;
+    }
+    .card p {
+        margin: 0 10px 10px;
+        font-size: 0.9rem;
+        color: #555;
+    }
+    /* Responsive */
+    @media(max-width: 600px) {
+        header { font-size: 1.2rem; }
+        .slides img { height: 250px; }
+    }
+</style>
+</head>
+<body>
+
+<header>🌍 Dream Travel Agency</header>
+
+<!-- Image Slider -->
+<div class="slider">
+    <div class="slides">
+        <img src="https://picsum.photos/id/1018/1200/400" alt="Slide 1">
+        <img src="https://picsum.photos/id/1015/1200/400" alt="Slide 2">
+        <img src="https://picsum.photos/id/1016/1200/400" alt="Slide 3">
+    </div>
+</div>
+
+<!-- Search Bar -->
+<div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search Destination..." onkeyup="filterDestinations()">
+</div>
+
+<!-- Destinations -->
+<div class="destinations" id="destinationsList">
+    <div class="card">
+        <img src="https://picsum.photos/id/1011/400/200" alt="Paris">
+        <h3>Paris</h3>
+        <p>The city of lights and love.</p>
+    </div>
+    <div class="card">
+        <img src="https://picsum.photos/id/1012/400/200" alt="Tokyo">
+        <h3>Tokyo</h3>
+        <p>Experience modern culture and tradition.</p>
+    </div>
+    <div class="card">
+        <img src="https://picsum.photos/id/1013/400/200" alt="Maldives">
+        <h3>Maldives</h3>
+        <p>Tropical paradise with crystal-clear waters.</p>
+    </div>
+    <div class="card">
+        <img src="https://picsum.photos/id/1014/400/200" alt="New York">
+        <h3>New York</h3>
+        <p>The city that never sleeps.</p>
+    </div>
+</div>
+    <footer> 
+        cteated by ROHIT MEENA © 2025
+        
+    </footer>
+    
+    
+<script>
+function filterDestinations() {
+    let input = document.getElementById('searchInput').value.toLowerCase();
+    let cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        let title = card.querySelector('h3').textContent.toLowerCase();
+        card.style.display = title.includes(input) ? '' : 'none';
+    });
+}
+</script>
+
+</body>
+</html>
